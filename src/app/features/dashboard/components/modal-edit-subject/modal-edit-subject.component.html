@@ -1,0 +1,58 @@
+<div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
+    <div class="bg-white rounded-lg p-6 w-auto">
+      <div class="layout-content-container flex flex-col w-[512px] max-w-[512px] py-5 max-w-[960px] flex-1">
+        @if (showSuccess()) {
+          <div class="flex justify-between bg-green-300 font-bold text-white rounded-lg p-4">
+            <p>La materia fue editada exitosamente</p>
+          </div>
+        }
+        <div class="flex flex-wrap justify-between gap-3 p-4">
+          <p class="text-black tracking-light text-[32px] font-bold leading-tight min-w-72">
+            Editar materia
+          </p>
+          <button (click)="this.onCloseModal.emit()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>        
+          </button>
+        </div>
+        <form [formGroup]="formCourse">
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-black text-base font-medium leading-normal pb-2">
+                Nombre
+              </p>
+              <input placeholder="E.j. Calculo Diferencial" formControlName="name"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border border-[#DEDEDE] bg-[#FFFFFF] focus:border-[#DEDEDE] h-14 placeholder:text-[#6B6B6B] p-[15px] text-base font-normal leading-normal"
+                value="" />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-black text-base font-medium leading-normal pb-2">
+                Numero de creditos
+              </p>
+              <input placeholder="E.j. 3" formControlName="credits"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border border-[#DEDEDE] bg-[#FFFFFF] focus:border-[#DEDEDE] h-14 placeholder:text-[#6B6B6B] p-[15px] text-base font-normal leading-normal"
+                value="" />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-black text-base font-medium leading-normal pb-2">
+                Descripción
+              </p>
+              <textarea placeholder="E.j. Estudia los principios del calculo diferencial" formControlName="description"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border border-[#DEDEDE] bg-[#FFFFFF] focus:border-[#DEDEDE] min-h-36 placeholder:text-[#6B6B6B] p-[15px] text-base font-normal leading-normal"></textarea>
+            </label>
+          </div>
+          <div class="flex px-4 py-3 justify-end">
+            <button (click)="closeModal()"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-black text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]">
+              <span class="truncate">Editar</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

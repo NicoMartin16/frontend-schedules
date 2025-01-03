@@ -1,0 +1,11 @@
+<div class="flex flex-col gap-4">
+    <div class="flex flex-col gap-2">
+      @for(item of menuItems; let i = $index; track i) {
+          <a (click)="navigateTo(item)" [ngClass]="item.active ? 'rounded-lg bg-[#EEEEEE]': ''" class="flex items-center gap-3 px-3 py-2 cursor-pointer">
+            <p class="text-black text-sm font-medium leading-normal">
+              {{item.label}}
+            </p>
+          </a>
+      }  
+    </div>
+  </div>

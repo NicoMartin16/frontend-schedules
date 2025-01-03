@@ -1,0 +1,406 @@
+<div class="flex flex-wrap justify-between gap-3 p-4">
+    <p
+      class="text-black tracking-light text-[32px] font-bold leading-tight min-w-72"
+    >
+      Profesores
+    </p>
+    <button
+      class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#EEEEEE] text-black text-sm font-medium leading-normal"
+    >
+      <span class="truncate">Agregar profesor</span>
+    </button>
+  </div>
+  <div class="px-4 py-3">
+    <label class="flex flex-col min-w-40 h-12 w-full">
+      <div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+        <div
+          class="text-[#6B6B6B] flex border-none bg-[#EEEEEE] items-center justify-center pl-4 rounded-l-lg border-r-0"
+          data-icon="MagnifyingGlass"
+          data-size="24px"
+          data-weight="regular"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24px"
+            height="24px"
+            fill="currentColor"
+            viewBox="0 0 256 256"
+          >
+            <path
+              d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
+            ></path>
+          </svg>
+        </div>
+        <input
+          placeholder="Buscar profesores"
+          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border-none bg-[#EEEEEE] focus:border-none h-full placeholder:text-[#6B6B6B] px-4 rounded-l-none border-l-0 pl-2 text-base font-normal leading-normal"
+          value=""
+        />
+      </div>
+    </label>
+  </div>
+  <div class="px-4 py-3 @container">
+    <div
+      class="flex overflow-hidden rounded-lg border border-[#DEDEDE] bg-[#FFFFFF]"
+    >
+      <table class="flex-1">
+        <thead>
+          <tr class="bg-[#FFFFFF]">
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 px-4 py-3 text-left text-black w-[400px] text-sm font-medium leading-normal"
+            >
+              Nombre
+            </th>
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 px-4 py-3 text-left text-black w-[400px] text-sm font-medium leading-normal"
+            >
+              Edad
+            </th>
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 px-4 py-3 text-left text-black w-[400px] text-sm font-medium leading-normal"
+            >
+              Genero
+            </th>
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 px-4 py-3 text-left text-black w-[400px] text-sm font-medium leading-normal"
+            >
+              Telefono
+            </th>
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 px-4 py-3 text-left text-black w-[400px] text-sm font-medium leading-normal"
+            >
+              Email
+            </th>
+            <th
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 px-4 py-3 text-left text-black w-60 text-[#6B6B6B] text-sm font-medium leading-normal"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Michael Smith
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              30
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Male
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7890
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              michael.smith.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Jennifer Johnson
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              28
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Female
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7891
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              jennifer.johnson.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Christopher Davis
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              35
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Male
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7892
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              christopher.davis.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Jessica Martinez
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              33
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Female
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7893
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              jessica.martinez.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Matthew Brown
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              31
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Male
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7894
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              matthew.brown.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Amanda Murphy
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              29
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Female
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7895
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              amanda.murphy.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Daniel Wilson
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              34
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Male
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7896
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              daniel.wilson.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Ashley Taylor
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              32
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Female
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7897
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              ashley.taylor.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Andrew Anderson
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              27
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Male
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7898
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              andrew.anderson.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+          <tr class="border-t border-t-[#DEDEDE]">
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-120 h-[72px] px-4 py-2 w-[400px] text-black text-sm font-normal leading-normal"
+            >
+              Samantha Thomas
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-240 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              26
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-360 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              Female
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-480 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              123-456-7899
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-600 h-[72px] px-4 py-2 w-[400px] text-[#6B6B6B] text-sm font-normal leading-normal"
+            >
+              samantha.thomas.com
+            </td>
+            <td
+              class="table-83de0743-c98b-4990-a920-892a88dff17c-column-720 h-[72px] px-4 py-2 w-60 text-[#6B6B6B] text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              Edit
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
