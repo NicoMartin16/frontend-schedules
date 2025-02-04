@@ -16,7 +16,7 @@ export class MateriasPageComponent implements OnInit {
   isModalOpen = false;
   coursesList = signal<Sobject[]>([]);
 
-  constructor (
+constructor (
     private readonly courseContract: CourseContractService
   ) {}
 

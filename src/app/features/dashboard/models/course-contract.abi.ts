@@ -97,6 +97,43 @@ export const courseContractAbi = [
       },
       {
         indexed: false,
+        internalType: 'uint256',
+        name: 'scheduleId',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
+        internalType: 'uint8',
+        name: 'day',
+        type: 'uint8',
+      },
+      {
+        indexed: false,
+        internalType: 'uint8',
+        name: 'startHour',
+        type: 'uint8',
+      },
+      {
+        indexed: false,
+        internalType: 'uint8',
+        name: 'endHour',
+        type: 'uint8',
+      },
+    ],
+    name: 'ScheduleUpdated',
+    type: 'event',
+  },
+  {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: false,
+        internalType: 'uint256',
+        name: 'courseId',
+        type: 'uint256',
+      },
+      {
+        indexed: false,
         internalType: 'address',
         name: 'student',
         type: 'address',
@@ -249,6 +286,24 @@ export const courseContractAbi = [
     inputs: [
       {
         internalType: 'uint256',
+        name: '_courseId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '_scheduleId',
+        type: 'uint256',
+      },
+    ],
+    name: 'deleteSchedule',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
         name: '_id',
         type: 'uint256',
       },
@@ -319,6 +374,16 @@ export const courseContractAbi = [
         name: '',
         type: 'uint8',
       },
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string',
+      },
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
     ],
     stateMutability: 'view',
     type: 'function',
@@ -331,6 +396,46 @@ export const courseContractAbi = [
         internalType: 'uint256[]',
         name: '',
         type: 'uint256[]',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'listAllSchedules',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'uint8',
+            name: 'day',
+            type: 'uint8',
+          },
+          {
+            internalType: 'uint8',
+            name: 'startHour',
+            type: 'uint8',
+          },
+          {
+            internalType: 'uint8',
+            name: 'endHour',
+            type: 'uint8',
+          },
+          {
+            internalType: 'string',
+            name: 'courseName',
+            type: 'string',
+          },
+          {
+            internalType: 'bool',
+            name: 'isActive',
+            type: 'bool',
+          },
+        ],
+        internalType: 'struct CourseContract.Schedule[]',
+        name: '',
+        type: 'tuple[]',
       },
     ],
     stateMutability: 'view',
@@ -417,6 +522,39 @@ export const courseContractAbi = [
       },
     ],
     name: 'updateCourse',
+    outputs: [],
+    stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_courseId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint256',
+        name: '_scheduleId',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint8',
+        name: '_day',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: '_startHour',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: '_endHour',
+        type: 'uint8',
+      },
+    ],
+    name: 'updateSchedule',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',
