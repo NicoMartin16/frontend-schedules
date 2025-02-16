@@ -360,6 +360,55 @@ export const courseContractAbi = [
     name: 'getSchedule',
     outputs: [
       {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint8',
+        name: '',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: '',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: '',
+        type: 'uint8',
+      },
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string',
+      },
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '_scheduleId',
+        type: 'uint256',
+      },
+    ],
+    name: 'getScheduleById',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+      {
         internalType: 'uint8',
         name: '',
         type: 'uint8',
@@ -407,6 +456,11 @@ export const courseContractAbi = [
     outputs: [
       {
         components: [
+          {
+            internalType: 'uint256',
+            name: 'id',
+            type: 'uint256',
+          },
           {
             internalType: 'uint8',
             name: 'day',
@@ -486,8 +540,65 @@ export const courseContractAbi = [
     type: 'function',
   },
   {
+    inputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    name: 'schedulesById',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: 'id',
+        type: 'uint256',
+      },
+      {
+        internalType: 'uint8',
+        name: 'day',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: 'startHour',
+        type: 'uint8',
+      },
+      {
+        internalType: 'uint8',
+        name: 'endHour',
+        type: 'uint8',
+      },
+      {
+        internalType: 'string',
+        name: 'courseName',
+        type: 'string',
+      },
+      {
+        internalType: 'bool',
+        name: 'isActive',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [],
     name: 'totalCourses',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'totalSchedules',
     outputs: [
       {
         internalType: 'uint256',

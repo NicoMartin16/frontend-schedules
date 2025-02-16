@@ -1,3 +1,3 @@
 
 
-export type EventCourse = "CourseCreated" | "CourseDeleted" | "CourseUpdated" | "ScheduleAdded" | "StudentRegisteredInCourse" | "UserRegistered" | undefined;
+export type EventCourse = "CourseCreated" | "CourseDeleted" | "CourseUpdated" | "ScheduleAdded" | "StudentRegisteredInCourse" | "UserRegistered" | "ScheduleUpdated" | undefined;

@@ -30,7 +30,6 @@ export class ModalEditSubjectComponent {
 
   async ngOnInit() {
     const course = await this._courseContractService.getCourseById(this.courseId());
-    console.log(course);
     this.formCourse.patchValue({
       name: course.name,
       credits: course.credits.toString(),

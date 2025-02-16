@@ -3,6 +3,7 @@
     Horarios
   </p>
   <button
+    (click)="openModal()"
     class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-[#EEEEEE] text-black text-sm font-medium leading-normal"
     >
     <span class="truncate">Nuevo horario</span>
@@ -26,5 +27,9 @@
   </label>
 </div>
 <div class="px-4 py-3 @container">
-  <app-datatable  />
+  <app-schedules-table [schedulesList]="schedulesList()" (onCloseModal)="closeModal()" />
 </div>
+
+@if(isModalOpen) {
+  <app-modal-add-schedule (onCloseModal)="closeModal()" />
+}
