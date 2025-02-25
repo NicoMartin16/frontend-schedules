@@ -6,26 +6,33 @@ import { courseContractAbi } from '../models/course-contract.abi';
 import { EventCourse } from '../models/event-course.type';
 import { Sobject } from '../models/subject.model';
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class CourseContractService {
 
-  public courseContract;
+  public courseContract!: any;
 
   constructor(
     private readonly _viemService: ViemService,
   ) {
-    this.courseContract = getContract({
-      address: `0x${environment.contractAddres}`,
-      abi: courseContractAbi,
-      client: {
-        public: this._viemService.publicClient,
-        wallet: this._viemService.walletClient
-      },
-    });
+    this.init();
+  }
+
+  private async init(): Promise<void> {
+    const connected = await this._viemService.connectWallet();
+    if (connected) {
+      this.courseContract = getContract({
+        address: `0x${environment.contractAddres}`,
+        abi: courseContractAbi,
+        client: {
+          public: this._viemService.publicClient,
+          wallet: this._viemService.walletClient
+        },
+      });
+    } else {
+      console.error('Failed to connect wallet');
+    }
   }
 
   public async createCourse(name: string, credits: number, description: string) {
@@ -40,7 +47,7 @@ export class CourseContractService {
 
   public async listAllCourses(): Promise<Sobject[]> {
     const courses = await this.courseContract.read.listCourses();
-    const coursesList: Promise<Sobject[]> = Promise.all(courses.map(async (course) => {
+    const coursesList: Promise<Sobject[]> = Promise.all(courses.map(async (course: Sobject) => {
       let subject = await this.courseContract.read.getCourse([course]);
       return {
         id: subject[0],

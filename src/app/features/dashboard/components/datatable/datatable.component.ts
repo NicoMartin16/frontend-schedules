@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model, signal } from '@angular/core';
 import { Sobject } from '../../models/subject.model';
 import { CourseContractService } from '../../services/course-contract.service';
 import { ModalEditSubjectComponent } from "../modal-edit-subject/modal-edit-subject.component";
@@ -13,7 +13,7 @@ import { ModalEditSubjectComponent } from "../modal-edit-subject/modal-edit-subj
 })
 export class DatatableComponent {
  
-  public coursesList = input<Sobject[]>([]);
+  public coursesList = model<Sobject[]>([]);
   public courseId = signal<bigint>(0n);
   public isModalEditOpen = signal<boolean>(false);
 
@@ -25,12 +25,18 @@ export class DatatableComponent {
     console.log(idCourse);
     await this.courseContractService.deleteCourse(idCourse);
     const log = await this.courseContractService.getEventsFromBlockchain('CourseDeleted');
+    this.coursesList.set(await this.courseContractService.listAllCourses());
     console.log(log);
   }
 
   async editCourse(idCourse: bigint) {
     this.isModalEditOpen.set(true);
     this.courseId.set(idCourse);
+  }
+
+  async closeModalEdit() {
+    this.isModalEditOpen.set(false);
+    this.coursesList.set(await this.courseContractService.listAllCourses());
   }
 
 }

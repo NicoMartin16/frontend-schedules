@@ -1,0 +1,11 @@
+{
+  "/api": {
+    "target": "https://metamask-sdk.api.cx.metamask.io",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug",
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

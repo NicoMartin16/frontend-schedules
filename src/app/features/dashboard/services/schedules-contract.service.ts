@@ -22,6 +22,22 @@ export class SchedulesContractService {
     });
   }
 
+  public async init(): Promise<void> {
+    const connected = await this._viemService.connectWallet();
+    if (connected) {
+      this.scheduleContract = getContract({
+        address: `0x${environment.contractAddres}`,
+        abi: courseContractAbi,
+        client: {
+          public: this._viemService.publicClient,
+          wallet: this._viemService.walletClient,
+        },
+      });
+    } else {
+      console.error('Failed to connect wallet');
+    }
+  }
+
   public async addSchedule(id: number, day: number, startHour: number, endHour: number) {
     const account = await this._viemService.getAddress();
     const [address] = account;
@@ -40,6 +56,15 @@ export class SchedulesContractService {
     const account = await this._viemService.getAddress();
     const [address] = account;
     await this.scheduleContract.write.updateSchedule([idCourse, idSchedule, day, startHour, endHour], {
+      account: address,
+      chain: environment.chain,
+    });
+  }
+
+  public async deleteSchedule(idCourse: bigint, idSchedule: bigint) {
+    const account = await this._viemService.getAddress();
+    const [address] = account;
+    await this.scheduleContract.write.deleteSchedule([idCourse, idSchedule], {
       account: address,
       chain: environment.chain,
     });

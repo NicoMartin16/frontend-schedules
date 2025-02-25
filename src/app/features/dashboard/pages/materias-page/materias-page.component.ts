@@ -28,7 +28,8 @@ constructor (
     this.isModalOpen = true;
   }
 
-  closeModal() {
+  async closeModal() {
     this.isModalOpen = false;
+    this.coursesList.set(await this.courseContract.listAllCourses());
   }
 }

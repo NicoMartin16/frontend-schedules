@@ -55,7 +55,7 @@ export class ModalEditSubjectComponent {
     } else {
       console.error('Form values are invalid');
     }
-    // this.onCloseModal.emit();
+    this.onCloseModal.emit();
   }
 
 }

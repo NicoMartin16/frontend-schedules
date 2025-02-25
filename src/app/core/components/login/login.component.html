@@ -5,7 +5,7 @@
     <p class="text-black text-base font-normal leading-normal pb-3 pt-1 px-4">
       Horarios UD es una universidad descentralizada. Puedes usar tu billetera de criptomonedas para inscribirte en clases y manejar tus horarios academicos. Conecta tu billetera para comenzar.
     </p>
-    <div class="flex px-4 py-3">
+    <div class="flex flex px-4 py-3">
       <button
         class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-black text-[#FFFFFF] gap-2 pl-4 text-sm font-bold leading-normal tracking-[0.015em]"
       >
@@ -18,6 +18,9 @@
         </div>
         <span class="truncate" (click)="connectWallet()">Conectar Billetera</span>
       </button>
+    </div>
+    <div class="px-4">
+      <a class="text-base text-black underline " (click)="navigateToSignUp()">No estas registrado? Click y registrate en el sistema</a>
     </div>
   </div>
 </div>

@@ -451,6 +451,61 @@ export const courseContractAbi = [
     type: 'function',
   },
   {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_user',
+        type: 'address',
+      },
+    ],
+    name: 'getUser',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'address',
+            name: 'addr',
+            type: 'address',
+          },
+          {
+            internalType: 'enum CourseContract.Role',
+            name: 'role',
+            type: 'uint8',
+          },
+          {
+            internalType: 'bool',
+            name: 'isActive',
+            type: 'bool',
+          },
+        ],
+        internalType: 'struct CourseContract.User',
+        name: '',
+        type: 'tuple',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: '_user',
+        type: 'address',
+      },
+    ],
+    name: 'isRegistered',
+    outputs: [
+      {
+        internalType: 'bool',
+        name: '',
+        type: 'bool',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
     inputs: [],
     name: 'listAllSchedules',
     outputs: [

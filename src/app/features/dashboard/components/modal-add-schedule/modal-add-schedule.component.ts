@@ -64,7 +64,7 @@ export class ModalAddScheduleComponent {
         setTimeout(() => {
           this.showSuccess.set(false);
           this.onCloseModal.emit();
-        }, 3000);
+        }, 5000);
       }
     } else {
       console.error('Form values are invalid');

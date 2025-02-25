@@ -75,5 +75,5 @@
 }
 
 @if(isModalEditOpen()) {
-<app-modal-edit-subject [courseId]="courseId()" (onCloseModal)="isModalEditOpen.set(false)"  />
+<app-modal-edit-subject [courseId]="courseId()" (onCloseModal)="closeModalEdit()"  />
 }

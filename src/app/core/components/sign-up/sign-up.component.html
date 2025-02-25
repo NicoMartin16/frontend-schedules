@@ -19,6 +19,7 @@
             Tu dirección de billetera
           </p>
           <input
+            [(ngModel)]="address"
             placeholder="0x..."
             class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-black focus:outline-0 focus:ring-0 border border-[#DEDEDE] bg-[#FFFFFF] focus:border-[#DEDEDE] h-14 placeholder:text-[#6B6B6B] p-[15px] text-base font-normal leading-normal"
             value=""
@@ -28,7 +29,7 @@
           <button
             class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-black text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]"
           >
-            <span class="truncate">Connect Your Wallet</span>
+            <span class="truncate" (click)="getAccount()">Conectar billetera</span>
           </button>
         </div>
       </div>
@@ -37,6 +38,8 @@
           class="flex items-center gap-4 rounded-lg border border-solid border-[#DEDEDE] p-[15px]"
         >
           <input
+            [(ngModel)]="rol"
+            value="0"
             type="radio"
             class="h-5 w-5 border-2 border-[#DEDEDE] bg-transparent text-transparent checked:border-black checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-black"
             name="a38e709d-e3a6-4990-8730-883d0fa7632f"
@@ -52,6 +55,8 @@
           class="flex items-center gap-4 rounded-lg border border-solid border-[#DEDEDE] p-[15px]"
         >
           <input
+            [(ngModel)]="rol"
+            value="1"
             type="radio"
             class="h-5 w-5 border-2 border-[#DEDEDE] bg-transparent text-transparent checked:border-black checked:bg-[image:--radio-dot-svg] focus:outline-none focus:ring-0 focus:ring-offset-0 checked:focus:border-black"
             name="a38e709d-e3a6-4990-8730-883d0fa7632f"
@@ -65,7 +70,7 @@
         <button
           class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 flex-1 bg-black text-[#FFFFFF] text-sm font-bold leading-normal tracking-[0.015em]"
         >
-          <span class="truncate">Enviar</span>
+          <span class="truncate" (click)="signUp()">Registrar</span>
         </button>
       </div>
     </div>

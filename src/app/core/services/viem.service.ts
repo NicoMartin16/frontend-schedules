@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
+  Address,
   createPublicClient,
   createWalletClient,
   custom,
@@ -21,6 +22,7 @@ export class ViemService {
   public canConnectWallet: boolean = false;
   private metaMaskSdk: MetaMaskSDK;
   private ethereum: SDKProvider | undefined;
+  private apiUrl = '/api/evt';
 
   constructor() {
     this.metaMaskSdk = new MetaMaskSDK({
@@ -28,6 +30,14 @@ export class ViemService {
         name: 'schedules-dapp',
       },
     });
+    this.restoreConnection();
+  }
+
+  private async restoreConnection(): Promise<void> {
+    const connected = localStorage.getItem('walletConnected');
+    if (connected === 'true') {
+      await this.connectWallet();
+    }
   }
 
   public async connectWallet(): Promise<boolean> {
@@ -48,15 +58,22 @@ export class ViemService {
           transport: http(),
         });
         this.canConnectWallet = true;
+        if (this.canConnectWallet) {
+          localStorage.setItem('walletConnected', 'true');
+        } else {
+          localStorage.removeItem('walletConnected');
+        }
         return this.canConnectWallet;
       } catch (error) {
         console.error(error);
         this.canConnectWallet = false;
+        localStorage.removeItem('walletConnected');
         return this.canConnectWallet;
       }
     } else {
       this.canConnectWallet = false;
       console.log('No ethereum provider found');
+      localStorage.removeItem('walletConnected');
       return this.canConnectWallet;
     }
   }
@@ -64,4 +81,13 @@ export class ViemService {
   public async getAddress(): Promise<GetAddressesReturnType> {
     return await this.walletClient.getAddresses();
   }
+
+  public async getConnectedAddress(): Promise<Address | null> {
+    if (this.ethereum) {
+      const accounts = await this.ethereum.request({ method: 'eth_accounts' }) as Address[];
+      return accounts.length > 0 ? accounts[0] : null;
+    }
+    return null;
+  }
+  
 }

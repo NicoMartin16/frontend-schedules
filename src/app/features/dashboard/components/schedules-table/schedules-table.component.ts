@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, model, output, signal } from '@angular/core';
 import { Schedule } from '../../models/schedule.model';
 import { DAYS_WEEK, DAYS_WEEK_TYPE } from '../../consts/days-week.const';
 import { ModalEditSubjectComponent } from "../modal-edit-subject/modal-edit-subject.component";
 import { ModalEditScheduleComponent } from "../modal-edit-schedule/modal-edit-schedule.component";
+import { CourseContractService } from '../../services/course-contract.service';
+import { SchedulesContractService } from '../../services/schedules-contract.service';
 
 @Component({
   selector: 'app-schedules-table',
@@ -14,10 +16,18 @@ import { ModalEditScheduleComponent } from "../modal-edit-schedule/modal-edit-sc
 })
 export class SchedulesTableComponent {
 
-  schedulesList = input<Schedule[]>([]);
+  schedulesList = model<Schedule[]>([]);
   public isModalEditOpen = signal<boolean>(false);
   public onCloseModal = output();
   public schedule = signal<Schedule>({ id: 0n, day: 0, startHour: 0, endHour: 0, courseName: '', isActive: false });
+
+
+  constructor(
+    private readonly _courseContractService: CourseContractService,
+    private readonly _scheduleContractService: SchedulesContractService
+  ) {
+
+  }
 
   public getDayName(dayNumber: DAYS_WEEK_TYPE | number): string {
     if (typeof dayNumber === 'number' && dayNumber in DAYS_WEEK) {
@@ -46,6 +56,15 @@ export class SchedulesTableComponent {
   async closeModalEdit() {
     this.isModalEditOpen.set(false);
     this.onCloseModal.emit();
+  }
+
+  async deleteSchedule(schedule: Schedule) {
+    const subject = (await this._courseContractService.listAllCourses()).find(course => course.name === schedule.courseName);
+    if (subject) {
+      await this._scheduleContractService.deleteSchedule(subject.id, schedule.id);
+      const log = await this._courseContractService.getEventsFromBlockchain('ScheduleUpdated');
+      this.schedulesList.set(await this._scheduleContractService.listAllSchedules());
+    }
   }
 
 }
