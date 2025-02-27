@@ -6,10 +6,12 @@
       Horarios UD
     </h2>
   </div>
-  <div
-  class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-  style="
-    background-image: url('https://cdn.usegalileo.ai/stability/5e894d9a-3b89-46aa-8cd0-838422e87d66.png');
-  "
-></div>
+  <div class="flex flex-1 justify-end gap-8">
+    <div class="flex items-center gap-9">
+      <a class="text-black text-sm font-medium leading-normal cursor-pointer" routerLink="/students-dashboard">Home</a>
+      <a class="text-black text-sm font-medium leading-normal cursor-pointer" routerLink="/students-dashboard/register-course">Courses</a>
+      <a class="text-black text-sm font-medium leading-normal cursor-pointer">Schedules</a>
+    </div>
+  </div>
 </header>
+<router-outlet></router-outlet>
