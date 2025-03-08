@@ -45,10 +45,8 @@ export class ModalEditScheduleComponent {
   ) {}
 
   async ngOnInit() {
-    console.log(this.schedule());
     this.subjects.set(await this._courseContractService.listAllCourses());
     const subject = this.subjects().find((subject) => subject.name === this.schedule()?.courseName);
-    console.log(subject);
     if(subject) {
       this.formSchedule.patchValue({
         courseId: subject?.id.toString(),

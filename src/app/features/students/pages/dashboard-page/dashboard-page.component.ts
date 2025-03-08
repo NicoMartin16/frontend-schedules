@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-student-page',
+  selector: 'app-dashboard-page',
   standalone: true,
   imports: [
     RouterOutlet,
   ],
-  templateUrl: './student-page.component.html',
-  styleUrl: './student-page.component.sass',
+  templateUrl: './dashboard-page.component.html',
+  styleUrl: './dashboard-page.component.sass',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class StudentPageComponent {
+export class DashboardPageComponent {
 
 }

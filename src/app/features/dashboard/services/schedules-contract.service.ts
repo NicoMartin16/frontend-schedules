@@ -9,17 +9,10 @@ import { Schedule } from '../models/schedule.model';
   providedIn: 'root',
 })
 export class SchedulesContractService {
-  public scheduleContract;
+  public scheduleContract!: any;
 
   constructor(private readonly _viemService: ViemService) {
-    this.scheduleContract = getContract({
-      address: `0x${environment.contractAddres}`,
-      abi: courseContractAbi,
-      client: {
-        public: this._viemService.publicClient,
-        wallet: this._viemService.walletClient,
-      },
-    });
+    this.init();
   }
 
   public async init(): Promise<void> {

@@ -21,7 +21,7 @@ export const routes: Routes = [
     },
     {
         path: 'students-dashboard',
-        loadComponent: () => import('./features/students/pages/student-page/student-page.component').then(m => m.StudentPageComponent),
+        loadComponent: () => import('./features/students/pages/dashboard-page/dashboard-page.component').then(m => m.DashboardPageComponent),
         loadChildren: () => import('./features/students/students.routes')
     },
 ];

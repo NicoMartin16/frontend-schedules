@@ -1,5 +1,4 @@
-import { Route } from "@angular/router";
-
+import { Route } from '@angular/router';
 
 export default [
     {
@@ -10,10 +9,17 @@ export default [
             ),
     },
     {
-        path: 'register-course',
+        path: 'home',
+        loadComponent: () =>
+            import('./pages/student-page/student-page.component').then(
+                (m) => m.StudentPageComponent
+            ),
+    },
+    {
+        path: 'register-courses',
         loadComponent: () =>
             import('./pages/register-courses/register-courses.component').then(
                 (m) => m.RegisterCoursesComponent
             ),
-    }
+    },
 ] satisfies Route[];
