@@ -566,12 +566,12 @@ export const courseContractAbi = [
   {
     inputs: [
       {
-        internalType: 'uint256',
-        name: '_courseId',
-        type: 'uint256',
+        internalType: 'uint256[]',
+        name: '_courseIds',
+        type: 'uint256[]',
       },
     ],
-    name: 'registerStudentInCourse',
+    name: 'registerStudentInCourses',
     outputs: [],
     stateMutability: 'nonpayable',
     type: 'function',

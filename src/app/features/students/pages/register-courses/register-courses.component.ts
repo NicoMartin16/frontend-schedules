@@ -14,8 +14,12 @@ import { Sobject } from '../../../dashboard/models/subject.model';
 })
 export class RegisterCoursesComponent implements OnInit {
 
+
+
   schedules = signal<Schedule[]>([]);
   subjects = signal<Sobject[]>([]);
+  coursesToRegister = signal<Schedule[]>([]);
+  subjectsToRegister = signal<Sobject[]>([]);
 
   constructor(
     private readonly studentContractService: StudentContractService,
@@ -25,30 +29,39 @@ export class RegisterCoursesComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     
     this.schedules.set(await this.studentContractService.listAllSchedules());
-    const courses = await this.getStudentCourses();
-    console.log('schedules', this.schedules());
-    console.log(courses);
+    this.subjects.set(await this._courseContractService.listAllCourses());
+    this.subjectsToRegister.set(await this.studentContractService.getStudentCourses());
+  
   }
 
   public async registerStudentInCourse(schedule: Schedule): Promise<void> {
-    this.subjects.set(await this._courseContractService.listAllCourses());
     const subject = this.subjects().find((subject) => subject.name === schedule?.courseName);
+    this.coursesToRegister.set([...this.coursesToRegister(), schedule]);
     console.log(subject);
-    if(subject) {
-      await this.studentContractService.registerStudentInCourse(subject.id);
-      const logs = await this.studentContractService.getEventsFromBlockchain('StudentRegisteredInCourse');
-      console.log(logs);
-    }
+    if (subject) {
+      this.subjectsToRegister.set([...this.subjectsToRegister(), subject]);
+    }    
   }
 
   public async getStudentCourses(): Promise<void> {
     const coursesStudent = await this.studentContractService.getStudentCourses();
-    console.log(coursesStudent);
   }
 
   public transformNumberToHour(hour: number | undefined): string {
     const validHour = hour ?? 0;
     return validHour.toString().padStart(2, '0') + ':00';
+  }
+
+  totalCredits(): number {
+    return this.subjectsToRegister().reduce((acc, subject) => acc + Number(subject.credits), 0);
+    
+  }
+
+  async registerSchedule() {
+    const idsCourses = this.subjectsToRegister().map((course) => course.id);
+    await this.studentContractService.registerStudentInCourse(idsCourses);
+    const logs = this.studentContractService.getEventsFromBlockchain('StudentRegisteredInCourse');
+    console.log(logs);
   }
 
 }

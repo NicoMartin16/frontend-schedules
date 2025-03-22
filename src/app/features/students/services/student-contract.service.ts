@@ -33,11 +33,11 @@ export class StudentContractService {
     return schedules;
   }
 
-  public async registerStudentInCourse(courseId: bigint) {
+  public async registerStudentInCourse(courseId: bigint[]) {
+    console.log(courseId);
     const account = await this._viemService.getAddress();
     const [address] = account;
-    console.log('address', address);
-    await this.scheduleContract.write.registerStudentInCourse([courseId], {
+    await this.scheduleContract.write.registerStudentInCourses([courseId], {
       account: address,
       chain: environment.chain,
     });
